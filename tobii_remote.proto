@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+service TobiiRemote {
+    rpc GetGazePosOnScreen (google.protobuf.Empty) returns (GazePosOnScreen) {}
+    rpc GetEyeTrackerInfo (google.protobuf.Empty) returns (EyeTrackerInfo) {}
+}
+
+message GazePosOnScreen {
+    double pos_x = 1;
+    double pos_y = 2;
+
+}
+
+message EyeTrackerInfo {
+    string eyetracker_model_id = 1;
+}

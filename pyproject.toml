@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "tobii-grpc-server"
+version = "0.1.0"
+description = ""
+authors = ["Yuto Miyanohara <miyanohara@isi.imi.i.u-tokyo.ac.jp>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.8.0"
+tobii-research = "^1.10.1"
+grpcio = "^1.50.0"
+grpcio-tools = "^1.50.0"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.10.1"
+black = "^22.10.0"
+flake8 = "^5.0.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
