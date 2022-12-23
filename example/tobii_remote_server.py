@@ -30,7 +30,7 @@ class TobiiRemoteServicer(tobii_remote_pb2_grpc.TobiiRemoteServicer):
 
 
 def serve():
-    tracker = DummyTracker()
+    tracker = Tracker()
     servicer = TobiiRemoteServicer()
     servicer.tracker = tracker
 
