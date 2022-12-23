@@ -2,8 +2,13 @@ import logging
 from time import sleep
 
 import grpc
-import tobii_remote_pb2_grpc
-from tobii_remote_pb2 import EyeTrackerInfo, GazePosOnScreen, google_dot_protobuf_dot_empty__pb2
+
+from tobii_remote import tobii_remote_pb2_grpc
+from tobii_remote.tobii_remote_pb2 import (
+    EyeTrackerInfo,
+    GazePosOnScreen,
+    google_dot_protobuf_dot_empty__pb2,
+)
 
 """
 Sample program of gRPC Tobii Remote Client

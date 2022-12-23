@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Yuto Miyanohara <miyanohara@isi.imi.i.u-tokyo.ac.jp>"]
 readme = "README.md"
+packages = [{include= "tobii_remote"}]
 
 [tool.poetry.dependencies]
 python = "3.8.0"

@@ -2,9 +2,10 @@ import logging
 from concurrent import futures
 
 import grpc
-import tobii_remote_pb2_grpc
-from tobii_remote_pb2 import EyeTrackerInfo, GazePosOnScreen
-from tracker import Tracker
+
+from tobii_remote import tobii_remote_pb2_grpc
+from tobii_remote.tobii_remote_pb2 import EyeTrackerInfo, GazePosOnScreen
+from tobii_remote.tracker import DummyTracker, Tracker
 
 
 class TobiiRemoteServicer(tobii_remote_pb2_grpc.TobiiRemoteServicer):
@@ -29,14 +30,12 @@ class TobiiRemoteServicer(tobii_remote_pb2_grpc.TobiiRemoteServicer):
 
 
 def serve():
-    tracker = Tracker()
+    tracker = DummyTracker()
     servicer = TobiiRemoteServicer()
     servicer.tracker = tracker
 
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    tobii_remote_pb2_grpc.add_TobiiRemoteServicer_to_server(
-        servicer, server
-    )
+    tobii_remote_pb2_grpc.add_TobiiRemoteServicer_to_server(servicer, server)
     server.add_insecure_port("[::]:50051")
 
     servicer.tracker.start()
